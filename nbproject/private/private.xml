@@ -5,7 +5,9 @@
         <group>
             <file>file:/home/farhan/public_html/Rent_a_House/index.php</file>
             <file>file:/home/farhan/public_html/Rent_a_House/validate.php</file>
+            <file>file:/home/farhan/public_html/Rent_a_House/add_property.php</file>
             <file>file:/home/farhan/public_html/Rent_a_House/sign_up.php</file>
+            <file>file:/home/farhan/public_html/Rent_a_House/property_form.html</file>
         </group>
     </open-files>
 </project-private>

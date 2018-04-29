@@ -10,13 +10,8 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <form action="sign_up.php?num=2" method="POST">
-            First name: <input type="text" name="first_name"/> 
-            <br/>
-            Last name: <input type="text" name="last_name"/> 
-            <br/>
-            Contact no: <input type="text" name="contact_no"/>
-            <br/>            
+        <form action="validate.php?num=1" method="POST">            
+            Contact no: <input type="text" name="contact_no"/>                       
             Password: <input type="password" name="password"/>            
             <input type="submit" />
         </form>

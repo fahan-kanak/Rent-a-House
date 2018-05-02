@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <script type="text/javascript">
+            function test() {
+                var xmlhttp = new XMLHttpRequest();
+                var area = document.getElementById("area").value;
+                var city = document.getElementById("city").value;
+                var size_low_value = document.getElementById("size_low_value").value;
+                var size_high_value = document.getElementById("size_high_value").value;
+                var rent_low_value = document.getElementById("rent_low_value").value;
+                var rent_high_value = document.getElementById("rent_high_value").value;
+                var garage = document.getElementById("garage").value;
+                var params = "area="+area+"&city="+city+"&size_low_value="+size_low_value+"&size_high_value="+size_high_value+"&rent_low_value="+rent_low_value+"&rent_high_value="+rent_high_value+"&garage="+garage;
+                xmlhttp.onreadystatechange = function () {
+                    if (this.readyState === 4 && this.status === 200) {
+                        var properties = JSON.parse(this.responseText);
+                        var myTable = "<table border='black'><tr><th>Prop_id</th><th>Address line</th><th></th></tr>\n";
+                        var i;
+                        for (i = 0; i < properties.length; i++) {
+                            myTable += "<tr><td>" + properties[i]['Prop_id'] + "</td>";
+                            myTable += "<td>" + properties[i]['Address_line'] + "</td></tr>\n";                            
+                        }
+                        myTable += "</table>";
+                        document.getElementById("table").innerHTML = myTable;                       
+                    }
+                };                
+                xmlhttp.open("POST", "search_property.php", true);
+                xmlhttp.send(params);
+            }
+        </script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>        
+        Area: <input type="text" id="area" name="area"/>
+            <br/>
+            City: <input type="text" id="city" name="city"/>
+            <br/>
+            Size: <input type="number" id="size_low_value" name="size_low_value"/>
+            to <input type="number" id="size_high_value" name="size_high_value"/>
+            <br/>
+            Rent: <input type="number" id="rent_low_value" name="rent_low_value"/>
+            to <input type="number" id="rent_high_value" name="rent_high_value"/>
+            <br/>
+            Garage: <input type="text" id="garage" name="garage"/>
+            <br/>
+            <input type="button" onclick="test()" value="Search"/> 
+        <br/>
+        <div id="table"></div>
+    </body>
+</html>
